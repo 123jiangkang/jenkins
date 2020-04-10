@@ -30,11 +30,9 @@ if [ "$image" != "" ] ;then
    fi
 fi
 
-#构建最新镜像
-sudo docker build -t $1:$2 .
 
 #启动容器
-sudo docker run -itd --name $1 -p 31002:31002 $1:$2
+sudo docker run -itd --name $1 -p 31002:31002 $image
 
 if [ $? -eq 0 ];then
       echo "$1 容器已启动"
