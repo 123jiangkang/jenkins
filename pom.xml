@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>jenkins</artifactId>
+    <version>1.0.0.RELEASE</version>
     <name>jenkins</name>
     <description>Demo project for Spring Boot</description>
 
@@ -50,11 +51,14 @@
                 <version>1.0.0</version>
                 <configuration>
                     <imageName>118.190.2.114:5000/${project.artifactId}:${project.version}</imageName>
-                    <dockerDirectory>${basedir}/</dockerDirectory> <!-- 指定 Dockerfile 路径-->
-                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置，也可以写到 Docokerfile 中 -->
+                    <baseImage>java</baseImage>
+                    <workdir>/</workdir>
+                    <cmd>["java", "-version"]</cmd>
+                    <entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
+                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
                     <resources>
                         <resource>
-                            <targetPath>/ROOT</targetPath>
+                            <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
                             <include>${project.build.finalName}.jar</include>
                         </resource>

@@ -1,4 +1,4 @@
-FROM openjdk
+FROM java
 MAINTAINER jiangkang
 WORKDIR /ROOT
 CMD ["java","-version"]
