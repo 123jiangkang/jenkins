@@ -1,9 +1,9 @@
 #! /bin/sh
 #接收外部参数
 
-image=`sudo docker images | grep -w $1 | head -n 1 | awk '{print $1}'`
+image=`sudo docker images | grep -w $1 | head -n 1 | awk '{print $3}'`
 dockerPs=`sudo docker ps | grep -w $1 | head -n 1 | awk '{print $1}'`
-dockerPsAll=`sudo docker ps -a | grep -w $1 | head -n 1 | awk '{print $3}'`
+dockerPsAll=`sudo docker ps -a | grep -w $1 | head -n 1 | awk '{print $1}'`
 
 echo "image : $image"
 echo "dockerPs : $dockerPs"
