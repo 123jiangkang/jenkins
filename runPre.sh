@@ -16,24 +16,16 @@ if [ "$dockerPs" != "" ];then
    fi
 fi
 
-if [ "$dockerPaAll" != "" ];then
-   sudo docker rm $dockerPaAll
+if [ "$dockerPsAll" != "" ];then
+   sudo docker rm $dockerPsAll
    if [ $? -eq 0 ];then
-      echo "$dockerPs 容器已删除"
+      echo "$dockerPsAll 容器已删除"
    fi
 fi
 
-#if [ "$image" != "" ] ;then
-#   sudo docker rmi $image
-#   if [ $? -eq 0 ];then
-#      echo "$image 镜像已删除"
-#   fi
-#fi
-
-
-#启动容器
-sudo docker run -itd --name $1 -p 31002:31002 $image
-
-if [ $? -eq 0 ];then
-      echo "$1 容器已启动"
+if [ "$image" != "" ] ;then
+   sudo docker rmi $image
+   if [ $? -eq 0 ];then
+      echo "$image 镜像已删除"
+   fi
 fi
