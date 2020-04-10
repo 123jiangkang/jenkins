@@ -3,7 +3,7 @@
 
 image=`sudo docker images | grep -w $1 | head -n 1 | awk '{print $1}'`
 dockerPs=`sudo docker ps | grep -w $1 | head -n 1 | awk '{print $1}'`
-dockerPsAll=`sudo docker ps -a | grep -w $1 | head -n 1 | awk '{print $1}'`
+dockerPsAll=`sudo docker ps -a | grep -w $1 | head -n 1 | awk '{print $3}'`
 
 echo "image : $image"
 echo "dockerPs : $dockerPs"
@@ -23,12 +23,12 @@ if [ "$dockerPaAll" != "" ];then
    fi
 fi
 
-if [ "$image" != "" ] ;then
-   sudo docker rmi $image
-   if [ $? -eq 0 ];then
-      echo "$image 镜像已删除"
-   fi
-fi
+#if [ "$image" != "" ] ;then
+#   sudo docker rmi $image
+#   if [ $? -eq 0 ];then
+#      echo "$image 镜像已删除"
+#   fi
+#fi
 
 
 #启动容器
