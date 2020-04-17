@@ -51,7 +51,7 @@
                 <version>1.0.0</version>
                 <configuration>
                     <!-- 定义镜像名 -->
-                    <imageName>118.190.2.114:5000/${project.artifactId}:${project.version}</imageName>
+                    <imageName>${project.artifactId}:${project.version}</imageName>
                     <!-- 基础镜像，编译为镜像时会下载jdk-->
                     <baseImage>java</baseImage>
                     <workdir>/</workdir>
