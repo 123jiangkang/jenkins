@@ -22,6 +22,6 @@ public class MainController {
 
     @RequestMapping("main")
     public String main(){
-        return  applictionName+" hello2021";
+        return  applictionName+" hello20212121";
     }
 }
