@@ -24,4 +24,8 @@ public class MainController {
     public String main(){
         return  applictionName+" hello20212121";
     }
+
+    public void testMain(){
+        System.out.println("testMain");
+    }
 }
